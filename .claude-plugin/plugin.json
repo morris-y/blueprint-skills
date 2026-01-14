@@ -1,0 +1,9 @@
+{
+  "name": "blueprint-skills",
+  "description": "Trading strategy lifecycle skills: plan, develop, review, and optimize with postmortem compliance",
+  "version": "1.0.0",
+  "author": {
+    "name": "morrisy"
+  },
+  "keywords": ["trading", "strategy", "backtest", "polymarket", "postmortem", "tdd", "linear"]
+}
