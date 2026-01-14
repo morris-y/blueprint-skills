@@ -186,6 +186,17 @@ digraph ralph_context {
 
 **Required:** Confirm project structure before proceeding.
 
+### Step 1.1: Write Implementation Plan
+
+```
+Use Skill tool: superpowers:writing-plans
+Purpose: Create structured implementation plan for the strategy
+Input: Strategy idea, PM mitigations from Phase 0, risk assessment
+Output: Detailed plan with phases, acceptance criteria, dependencies
+```
+
+### Step 1.2: Retrieve Codebase Context
+
 Use GitHub MCP to inspect:
 - `backtest/` directory: Existing backtest framework, data sources, metrics
 - `strategies/` directory: Current strategy implementations, common patterns
@@ -195,9 +206,26 @@ Action: Use mcp__github__get_file_contents to list directories
 If directories don't exist: Note this as "greenfield implementation"
 ```
 
-**Output:** Summary of existing codebase context or "greenfield" status.
+**Output:** Implementation plan + summary of existing codebase context or "greenfield" status.
 
 ## Phase 2: Strategy Risk Review
+
+Analyze the proposed strategy for Polymarket-specific risks.
+
+### Step 2.1: Invoke Code Review for Risk Analysis
+
+If strategy design document or pseudo-code exists, use superpowers to analyze risks:
+
+```
+Use Skill tool: superpowers:requesting-code-review
+Focus areas:
+- Risk patterns in strategy logic
+- Error handling assumptions
+- Edge case coverage
+- PM anti-pattern detection in design
+```
+
+### Step 2.2: Manual Risk Matrix Analysis
 
 Analyze the proposed strategy for Polymarket-specific risks:
 
@@ -209,7 +237,7 @@ Analyze the proposed strategy for Polymarket-specific risks:
 | **Model Risk** | Probability estimation method, edge decay |
 | **PM-Flagged Risks** | All HIGH/MEDIUM items from Phase 0 |
 
-**Output:** Risk assessment summary with mitigation recommendations.
+**Output:** Risk assessment summary with mitigation recommendations (combining superpowers analysis + manual review).
 
 ## Phase 3: Linear Ticket Creation
 
@@ -270,8 +298,9 @@ Use `mcp__plugin_linear_linear__create_issue` with `parentId` for sub-tickets.
 |-------|------|------------|
 | 0. PM Scan | `Grep` + `Read` | Scan `postmortem/` for relevant incidents |
 | 0b. 🔄 Ralph | `ralph-loop:ralph-loop` | Thorough context gathering (optional) |
+| 1. Plan | `superpowers:writing-plans` | Create structured implementation plan |
 | 1. Context | `mcp__github__get_file_contents` | List `backtest/`, `strategies/` |
-| 2. Review | Analysis (no tool) | Risk matrix + PM-flagged risks |
+| 2. Review | `superpowers:requesting-code-review` | Risk analysis + code review (if design doc exists) |
 | 3. Linear | `mcp__plugin_linear_linear__create_issue` | Create tickets with PM section |
 
 ## Common Mistakes

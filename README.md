@@ -69,9 +69,10 @@ blueprint-plan -> blueprint-develop -> blueprint-review -> blueprint-optimize
 
 These skills integrate with:
 - `ralph-loop` - For iterative refinement loops
-- `superpowers` - TDD, debugging, code review
+- `superpowers` - TDD (`test-driven-development`), debugging (`systematic-debugging`), code review (`requesting-code-review`), planning (`writing-plans`, `executing-plans`), verification (`verification-before-completion`), branch management (`finishing-a-development-branch`)
+- `code-review` - PR code review (`code-review`)
 - `linear` - Ticket management
-- `commit-commands` - Git operations
+- `commit-commands` - Git operations (`commit`, `commit-push-pr`)
 
 ## License
 

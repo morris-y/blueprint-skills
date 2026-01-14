@@ -158,7 +158,7 @@ grep -l "security\|credential\|key\|leak" ./postmortem/*.md
 
 **Goal:** Ensure robust error handling for market-making bot reliability.
 
-### Invoke code-review Skill
+### Step 2.1: Invoke Superpowers Code Review
 
 ```
 Use Skill tool: superpowers:requesting-code-review
@@ -167,6 +167,14 @@ Focus areas:
 - Network resilience
 - State recovery after failures
 - PM anti-pattern avoidance
+```
+
+### Step 2.2: Invoke Code Review Skill (Complementary)
+
+```
+Use Skill tool: code-review:code-review
+Purpose: Additional code review perspective, especially for PR-specific concerns
+Focus: PR readiness, merge conflicts, branch hygiene
 ```
 
 ### Critical Error Handling Patterns
@@ -373,7 +381,38 @@ Generate a comprehensive checklist:
 
 **Goal:** Create PR with comprehensive PM compliance documentation.
 
-### Use GitHub MCP
+### Step 5.1: Final Verification Before PR
+
+```
+Use Skill tool: superpowers:verification-before-completion
+Purpose: Final check that all review phases completed successfully
+Verify:
+- PM compliance audit passed
+- Security audit passed
+- Code review passed
+- Backtest metrics meet baseline
+- Anti-pattern scan clean
+```
+
+### Step 5.2: Commit and Push (if needed)
+
+If there are uncommitted changes:
+
+```
+Use Skill tool: commit-commands:commit
+Purpose: Create standardized commit before PR
+```
+
+### Step 5.3: Create PR
+
+**Option A: Use commit-push-pr (Recommended if uncommitted changes)**
+
+```
+Use Skill tool: commit-commands:commit-push-pr
+Purpose: Commit, push, and create PR in one step
+```
+
+**Option B: Use GitHub MCP (if already committed)**
 
 ```
 Tool: mcp__github__create_pull_request
@@ -482,11 +521,12 @@ After PR creation:
 |-------|-----------|------------|
 | 0. PM Audit | `pytest tests/pm_regression/` | Verify PM mitigations |
 | 1. Security | `Grep` + security patterns | Scan for secrets |
-| 2. Quality | `superpowers:requesting-code-review` | Exception handling |
+| 2. Quality | `superpowers:requesting-code-review` + `code-review:code-review` | Exception handling + PR review |
 | 3. Backtest | `Bash` (execute script) | Run backtest |
 | 3b. 🔄 Ralph | `ralph-loop:ralph-loop` | Iterative param tuning (optional) |
 | 4. PM Final | `Grep` + PM anti-patterns | Final sweep |
-| 5. PR | `mcp__github__create_pull_request` | Create with PM report |
+| 5. Verify | `superpowers:verification-before-completion` | Final check before PR |
+| 5. PR | `commit-commands:commit-push-pr` or `mcp__github__create_pull_request` | Create with PM report |
 
 ## Common Mistakes
 

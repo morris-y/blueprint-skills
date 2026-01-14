@@ -196,6 +196,14 @@ Generate a checklist to verify during implementation:
 
 **Goal:** Ensure new strategy aligns with existing backtest interfaces.
 
+### Step 1.1: Execute Implementation Plan
+
+```
+Use Skill tool: superpowers:executing-plans
+Purpose: Execute the implementation plan from Linear ticket
+Context: Strategy requirements, PM mitigations, test requirements
+```
+
 ### Checklist
 
 Use GitHub MCP to inspect:
@@ -411,6 +419,16 @@ pytest tests/pm_regression/ -v
 pytest --cov=strategies --cov-report=term-missing
 ```
 
+### Step 5.2: Systematic Debugging (if tests fail)
+
+If any tests fail:
+
+```
+Use Skill tool: superpowers:systematic-debugging
+Purpose: Systematic approach to debugging test failures
+Focus: Identify root cause, fix while maintaining PM compliance
+```
+
 **Output:** All tests passing, coverage maintained.
 
 ## Phase 6: Impact + PM Compliance Analysis
@@ -451,17 +469,46 @@ Use Grep to search for:
 
 **Output:** Impact report + PM Compliance Verification.
 
+## Phase 7: Finalize Development Branch
+
+**Goal:** Commit changes and prepare branch for review.
+
+### Step 7.1: Commit Changes
+
+```
+Use Skill tool: commit-commands:commit
+Purpose: Create standardized commit message for strategy implementation
+Message should reference: Linear ticket, PM mitigations implemented
+```
+
+### Step 7.2: Finish Development Branch
+
+```
+Use Skill tool: superpowers:finishing-a-development-branch
+Purpose: Integrate work, ensure branch is ready for review
+Verify:
+- All tests passing
+- PM compliance verified
+- Code follows conventions
+- Ready for blueprint-review
+```
+
+**Output:** Branch committed and ready for review.
+
 ## Quick Reference
 
 | Phase | Tool/Skill | Key Action |
 |-------|-----------|------------|
 | 0. PM Load | `Read` | Load CLAUDE.md + relevant postmortems |
+| 1. Execute | `superpowers:executing-plans` | Execute implementation plan |
 | 1. Align | `mcp__github__get_file_contents` | Check backtest/ interfaces |
 | 2. PM Test | Manual | Write PM regression tests FIRST |
 | 3. Test | `superpowers:test-driven-development` | Write feature tests |
 | 4. Implement | `code-simplifier` | PM-compliant, atomic, < 200 LOC |
 | 5. Sync | `pytest` via Bash | Run ALL tests after each change |
+| 5b. Debug | `superpowers:systematic-debugging` | If tests fail |
 | 6. Impact | `context7` + `Grep` | Impact + PM compliance check |
+| 7. Finish | `commit-commands:commit` + `superpowers:finishing-a-development-branch` | Commit and prepare for review |
 | 🔄 Ralph | `ralph-loop:ralph-loop` | Iterative test-fix cycle (optional) |
 
 ## Common Mistakes
