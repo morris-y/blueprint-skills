@@ -73,7 +73,7 @@ These skills integrate with:
 - `code-review` - PR code review (`code-review`)
 - `security-guidance` - Security best practices and vulnerability guidance (in `blueprint-review`)
 - `frontend-design` - High-quality frontend interfaces (in `blueprint-develop` when frontend-related)
-- `code-simplifier` - Code simplification and refactoring (in `blueprint-develop`, `blueprint-optimize`)
+- `code-simplifier` - Code simplification and refactoring (in `blueprint-develop`, `blueprint-review`)
 - `context7` - Comprehensive context gathering (throughout all phases)
 - `linear` - Ticket management
 - `commit-commands` - Git operations (`commit`, `commit-push-pr`)

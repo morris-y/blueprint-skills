@@ -195,6 +195,16 @@ Purpose: Additional code review perspective, especially for PR-specific concerns
 Focus: PR readiness, merge conflicts, branch hygiene
 ```
 
+### Step 2.3: Code Simplification
+
+Before creating PR, simplify and refactor code if needed:
+
+```
+Use Skill tool: code-simplifier:code-simplifier
+Purpose: Simplify code before PR creation
+Focus: Reduce complexity, improve maintainability, remove redundancy
+```
+
 ### Critical Error Handling Patterns
 
 | Scenario | Required Handling | Anti-pattern |
@@ -540,6 +550,7 @@ After PR creation:
 | 0. PM Audit | `context7:context7` (if needed) + `pytest tests/pm_regression/` | Gather context + Verify PM mitigations |
 | 1. Security | `security-guidance:security-guidance` + `Grep` + security patterns | Security guidance + Scan for secrets |
 | 2. Quality | `superpowers:requesting-code-review` + `code-review:code-review` | Exception handling + PR review |
+| 2b. Simplify | `code-simplifier:code-simplifier` | Simplify code before PR |
 | 3. Backtest | `Bash` (execute script) | Run backtest |
 | 3b. 🔄 Ralph | `ralph-loop:ralph-loop` | Iterative param tuning (optional) |
 | 4. PM Final | `context7:context7` (if needed) + `Grep` + PM anti-patterns | Gather context + Final sweep |

@@ -254,16 +254,6 @@ PM-003-liquidity-trap-election.md
 
 **Output:** Postmortem file created (or decision to skip documented).
 
-### Step 3.2: Code Simplification (if code changes needed)
-
-If postmortem identified code that needs simplification:
-
-```
-Use Skill tool: code-simplifier:code-simplifier
-Purpose: Simplify code patterns identified in postmortem
-Focus: Refactor anti-patterns, improve maintainability, reduce complexity
-```
-
 ### 🔄 Ralph Loop: Iterative PM Refinement (Optional)
 
 **When to Activate:** Complex incidents requiring thorough root cause analysis.
@@ -485,8 +475,7 @@ wc -l CLAUDE.md
 | 1. Sync | `mcp__plugin_linear_linear__update_issue` | Mark ticket Done |
 | 2. Commit | `commit-commands:commit` | Standardized commit |
 | 3. PM | `Write` to `./postmortem/` | Create if incident found |
-| 3b. Simplify | `code-simplifier:code-simplifier` | Simplify code if needed |
-| 3c. 🔄 Ralph | `ralph-loop:ralph-loop` | Iterative PM refinement (optional) |
+| 3b. 🔄 Ralph | `ralph-loop:ralph-loop` | Iterative PM refinement (optional) |
 | 4. Preview | Manual generation | Extract rules from PM |
 | 5. Confirm | `AskUserQuestion` or wait | Human approval required |
 | 6. Write | `Edit` to `CLAUDE.md` | Append, enforce 100 line limit |
