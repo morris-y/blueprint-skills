@@ -357,10 +357,20 @@ For each function/method:
 3. Am I introducing a pattern documented as "DON'T" in a PM?
 ```
 
-### Invoke code-simplifier Skill
+### Step 4.1: Frontend Design (if frontend-related)
+
+If the implementation involves frontend components, UI, or web interfaces:
 
 ```
-Use Skill tool: code-simplifier
+Use Skill tool: frontend-design:frontend-design
+Purpose: Create high-quality frontend interfaces
+Focus: Modern UI/UX, component design, user experience
+```
+
+### Step 4.2: Invoke code-simplifier Skill
+
+```
+Use Skill tool: code-simplifier:code-simplifier
 Purpose: Review implementation for simplicity before commit
 ```
 
@@ -435,7 +445,15 @@ Focus: Identify root cause, fix while maintaining PM compliance
 
 **Goal:** Verify changes don't break existing strategies AND don't violate PM mitigations.
 
-### PM Compliance Final Check
+### Step 6.1: Gather Context for Impact Analysis
+
+```
+Use Skill tool: context7:context7
+Purpose: Gather comprehensive context about code changes and their impact
+Focus: Related code patterns, dependencies, existing strategies, PM mitigations
+```
+
+### Step 6.2: PM Compliance Final Check
 
 ```markdown
 ## PM Compliance Verification
@@ -504,10 +522,11 @@ Verify:
 | 1. Align | `mcp__github__get_file_contents` | Check backtest/ interfaces |
 | 2. PM Test | Manual | Write PM regression tests FIRST |
 | 3. Test | `superpowers:test-driven-development` | Write feature tests |
-| 4. Implement | `code-simplifier` | PM-compliant, atomic, < 200 LOC |
+| 4. Frontend | `frontend-design:frontend-design` | If frontend-related (optional) |
+| 4. Implement | `code-simplifier:code-simplifier` | PM-compliant, atomic, < 200 LOC |
 | 5. Sync | `pytest` via Bash | Run ALL tests after each change |
 | 5b. Debug | `superpowers:systematic-debugging` | If tests fail |
-| 6. Impact | `context7` + `Grep` | Impact + PM compliance check |
+| 6. Impact | `context7:context7` + `Grep` | Gather context + Impact + PM compliance check |
 | 7. Finish | `commit-commands:commit` + `superpowers:finishing-a-development-branch` | Commit and prepare for review |
 | 🔄 Ralph | `ralph-loop:ralph-loop` | Iterative test-fix cycle (optional) |
 

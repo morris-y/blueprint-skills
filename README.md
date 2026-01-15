@@ -71,6 +71,10 @@ These skills integrate with:
 - `ralph-loop` - For iterative refinement loops
 - `superpowers` - TDD (`test-driven-development`), debugging (`systematic-debugging`), code review (`requesting-code-review`), planning (`writing-plans`, `executing-plans`), verification (`verification-before-completion`), branch management (`finishing-a-development-branch`)
 - `code-review` - PR code review (`code-review`)
+- `security-guidance` - Security best practices and vulnerability guidance (in `blueprint-review`)
+- `frontend-design` - High-quality frontend interfaces (in `blueprint-develop` when frontend-related)
+- `code-simplifier` - Code simplification and refactoring (in `blueprint-develop`, `blueprint-optimize`)
+- `context7` - Comprehensive context gathering (throughout all phases)
 - `linear` - Ticket management
 - `commit-commands` - Git operations (`commit`, `commit-push-pr`)
 

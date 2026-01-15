@@ -78,6 +78,16 @@ digraph blueprint_optimize {
 
 **Goal:** Mark Linear ticket as Done and ensure all links are in place.
 
+### Step 1.0: Gather Context (if needed)
+
+When syncing status or analyzing merged changes:
+
+```
+Use Skill tool: context7:context7
+Purpose: Gather context about merged PR, related tickets, and impact
+Focus: PR changes, related code, dependencies, PM context
+```
+
 ### Update Linear Ticket
 
 ```
@@ -243,6 +253,16 @@ PM-003-liquidity-trap-election.md
 ```
 
 **Output:** Postmortem file created (or decision to skip documented).
+
+### Step 3.2: Code Simplification (if code changes needed)
+
+If postmortem identified code that needs simplification:
+
+```
+Use Skill tool: code-simplifier:code-simplifier
+Purpose: Simplify code patterns identified in postmortem
+Focus: Refactor anti-patterns, improve maintainability, reduce complexity
+```
 
 ### 🔄 Ralph Loop: Iterative PM Refinement (Optional)
 
@@ -461,10 +481,12 @@ wc -l CLAUDE.md
 
 | Phase | Tool/Skill | Key Action |
 |-------|-----------|------------|
+| 1. Context | `context7:context7` (if needed) | Gather context about merged PR |
 | 1. Sync | `mcp__plugin_linear_linear__update_issue` | Mark ticket Done |
 | 2. Commit | `commit-commands:commit` | Standardized commit |
 | 3. PM | `Write` to `./postmortem/` | Create if incident found |
-| 3b. 🔄 Ralph | `ralph-loop:ralph-loop` | Iterative PM refinement (optional) |
+| 3b. Simplify | `code-simplifier:code-simplifier` | Simplify code if needed |
+| 3c. 🔄 Ralph | `ralph-loop:ralph-loop` | Iterative PM refinement (optional) |
 | 4. Preview | Manual generation | Extract rules from PM |
 | 5. Confirm | `AskUserQuestion` or wait | Human approval required |
 | 6. Write | `Edit` to `CLAUDE.md` | Append, enforce 100 line limit |

@@ -195,7 +195,15 @@ Input: Strategy idea, PM mitigations from Phase 0, risk assessment
 Output: Detailed plan with phases, acceptance criteria, dependencies
 ```
 
-### Step 1.2: Retrieve Codebase Context
+### Step 1.2: Gather Comprehensive Context
+
+```
+Use Skill tool: context7:context7
+Purpose: Gather comprehensive context about existing codebase
+Focus: Backtest framework, existing strategies, patterns, dependencies
+```
+
+### Step 1.3: Retrieve Codebase Context
 
 Use GitHub MCP to inspect:
 - `backtest/` directory: Existing backtest framework, data sources, metrics
@@ -206,7 +214,7 @@ Action: Use mcp__github__get_file_contents to list directories
 If directories don't exist: Note this as "greenfield implementation"
 ```
 
-**Output:** Implementation plan + summary of existing codebase context or "greenfield" status.
+**Output:** Implementation plan + comprehensive context + summary of existing codebase or "greenfield" status.
 
 ## Phase 2: Strategy Risk Review
 
@@ -299,6 +307,7 @@ Use `mcp__plugin_linear_linear__create_issue` with `parentId` for sub-tickets.
 | 0. PM Scan | `Grep` + `Read` | Scan `postmortem/` for relevant incidents |
 | 0b. 🔄 Ralph | `ralph-loop:ralph-loop` | Thorough context gathering (optional) |
 | 1. Plan | `superpowers:writing-plans` | Create structured implementation plan |
+| 1. Context | `context7:context7` | Gather comprehensive codebase context |
 | 1. Context | `mcp__github__get_file_contents` | List `backtest/`, `strategies/` |
 | 2. Review | `superpowers:requesting-code-review` | Risk analysis + code review (if design doc exists) |
 | 3. Linear | `mcp__plugin_linear_linear__create_issue` | Create tickets with PM section |

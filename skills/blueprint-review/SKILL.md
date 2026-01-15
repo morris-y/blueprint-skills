@@ -68,6 +68,16 @@ digraph blueprint_review {
 
 **Goal:** Verify implementation doesn't repeat any documented failures.
 
+### Step 0.0: Gather Context (if needed)
+
+When analyzing complex PM compliance issues:
+
+```
+Use Skill tool: context7:context7
+Purpose: Gather comprehensive context about PM mitigations and related code
+Focus: PM-related code patterns, historical fixes, compliance requirements
+```
+
 ### Step 0.1: Run PM Regression Tests
 
 ```bash
@@ -118,7 +128,15 @@ Verify code adheres to ALL directives:
 
 **Goal:** Ensure no security vulnerabilities in trading bot code.
 
-### Security Checklist
+### Step 1.1: Invoke Security Guidance
+
+```
+Use Skill tool: security-guidance:security-guidance
+Purpose: Get security best practices and vulnerability guidance
+Focus: Trading bot security, API key handling, credential management
+```
+
+### Step 1.2: Security Checklist
 
 | Category | Check Items | Severity |
 |----------|-------------|----------|
@@ -519,12 +537,12 @@ After PR creation:
 
 | Phase | Tool/Skill | Key Action |
 |-------|-----------|------------|
-| 0. PM Audit | `pytest tests/pm_regression/` | Verify PM mitigations |
-| 1. Security | `Grep` + security patterns | Scan for secrets |
+| 0. PM Audit | `context7:context7` (if needed) + `pytest tests/pm_regression/` | Gather context + Verify PM mitigations |
+| 1. Security | `security-guidance:security-guidance` + `Grep` + security patterns | Security guidance + Scan for secrets |
 | 2. Quality | `superpowers:requesting-code-review` + `code-review:code-review` | Exception handling + PR review |
 | 3. Backtest | `Bash` (execute script) | Run backtest |
 | 3b. 🔄 Ralph | `ralph-loop:ralph-loop` | Iterative param tuning (optional) |
-| 4. PM Final | `Grep` + PM anti-patterns | Final sweep |
+| 4. PM Final | `context7:context7` (if needed) + `Grep` + PM anti-patterns | Gather context + Final sweep |
 | 5. Verify | `superpowers:verification-before-completion` | Final check before PR |
 | 5. PR | `commit-commands:commit-push-pr` or `mcp__github__create_pull_request` | Create with PM report |
 
